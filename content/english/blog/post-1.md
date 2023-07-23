@@ -1,23 +1,16 @@
 ---
-title: "How to build an Application with modern Technology"
+title: "Phd journal - Week 0 (Why?)"
 meta_title: ""
-description: "this is meta description"
-date: 2022-04-04T05:00:00Z
-image: "/images/image-placeholder.png"
-categories: ["Application", "Data"]
-author: "John Doe"
-tags: ["nextjs", "tailwind"]
+description: "why write this journal"
+date: 2023-07-23
+categories: ["PHDJournal"]
+author: "Satyam Jay"
+tags: ["journal", "phd", "iit"]
 draft: false
 ---
 
-Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
+When the thought of doing a Phd first came to my mind, I was immediately surprised by how little information/guidance was available for aspiring students. I wished I could find a diary of a Phd students mentioning his struggle and achievements as he/she moved through the program. Then and there I decided, if I join a Phd program I will write weekly journal desribing my journey. I understand that unlike undergrad program, the experience of a Phd student varies based on his/her subject, guide, and most of all him/herself. However I believe that the journal will provide some rough idea of whats to come, if someone decides to walk this path.
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
+## Tentative publishing schedule
 
-## Creative Design
-
-Nam ut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
-
-> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
+I will write the journal weekly. And at the end of every semester I will ask ChatGPT to summarize and publish that summary as well.

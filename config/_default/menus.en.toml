@@ -6,12 +6,17 @@ name = "Home"
 url = "/"
 weight = 1
 
-[[main]]
-name = "About"
-url = "about/"
-weight = 2
+# [[main]]
+# name = "About"
+# url = "about/"
+# weight = 2
 
 [[main]]
 name = "Blog"
 url = "blog/"
+weight = 2
+
+[[main]]
+name = "About"
+url = "resume/"
 weight = 3

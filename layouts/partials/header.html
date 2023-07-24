@@ -1,0 +1,15 @@
+        <div class="resume-header">
+
+            <div class="row align-items-center">
+
+                {{ if .Params.profile.enable }}
+                {{ partial "profile.html" . }}
+                {{ end }}
+
+                {{ if .Params.contact.enable }}
+                {{ partial "contact.html" . }}
+                {{ end }}
+
+            </div><!--//row-->
+
+        </div><!--//resume-header-->

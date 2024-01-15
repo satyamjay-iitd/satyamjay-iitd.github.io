@@ -6,7 +6,7 @@ date: 2023-12-15
 categories: ["ResearchPaper Notes", "Database Optimization"]
 author: "Satyam Jay"
 tags: ["paper", "research", "database"]
-draft: false
+draft: true
 ---
 
 Understanding the "Volcano" Paper, and understanding database optimization.

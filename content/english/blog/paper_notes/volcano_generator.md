@@ -45,3 +45,5 @@ algorithms.
 7. Property function for each opertor, algorithm and enforcer.
 
 ### Search Algorithm
+
+

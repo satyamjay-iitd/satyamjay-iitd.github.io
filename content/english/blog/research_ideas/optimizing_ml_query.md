@@ -6,7 +6,7 @@ date: 2024-01-17
 categories: ["Distributed System", "Video Analytics"]
 author: "Satyam Jay"
 tags: ["research", "notes", "video-analytics", "optimization"]
-draft: false
+draft: true
 ---
 
 

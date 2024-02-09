@@ -6,7 +6,7 @@ date: 2023-12-15
 categories: ["ResearchPaper Notes", "Database Optimization"]
 author: "Satyam Jay"
 tags: ["paper", "research", "database"]
-draft: false
+draft: true
 ---
 
 ##### [Volcano ICDE'93](https://15721.courses.cs.cmu.edu/spring2019/papers/22-optimizer1/graefe-icde1993.pdf)

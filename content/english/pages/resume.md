@@ -65,7 +65,7 @@ education:
           university: "IIT, Delhi"
           dates:  "2020-2022"
 
-        - degree: "B.Tech in Computer Science"
+        - degree: "M.Tech in Computer Science"
           university: "People's University, Bhopal"
           dates:  "2016-2020"
 

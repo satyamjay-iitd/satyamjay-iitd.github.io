@@ -5,7 +5,7 @@ description: ""
 date: 2024-06-05
 categories: [""]
 author: "Satyam Jay"
-tags: [phd", "iit"]
+tags: ["phd", "iit"]
 draft: false
 ---
 

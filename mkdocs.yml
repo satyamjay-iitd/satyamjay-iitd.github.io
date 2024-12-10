@@ -1,1 +1,59 @@
 site_name: Satyam Jay
+site_url: https://satyamjay-iitd.github.io/
+
+theme:
+  name: material
+  icon:
+    logo: fontawesome/solid/computer
+  favicon: assets/favicon.png
+  font:
+    text: Roboto
+
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - toc.integrate
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.annotation
+    - content.code.copy
+
+  language: en
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: brown
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: brown
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+plugins:
+  - search
+  - social
+  - blog:
+      blog_toc: true
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+
+
+extra:
+  social:
+    - icon: fontawesome/brands/github-alt
+      link: https://github.com/satyamjay-iitd
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/satyam-jay-72858412b

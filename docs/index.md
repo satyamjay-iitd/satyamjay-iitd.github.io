@@ -1,17 +1,61 @@
-# Welcome to MkDocs
+#Curriculum Vitae
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+## Profile
 
-## Commands
+* Pursuing PhD in Distributed systems under the guidance of [Prof. Abhilash Jindal](https://abhilash-jindal.com/).
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+## Skills
 
-## Project layout
+* **Programming Languages**:- Rust, Python, Java, C, C++
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+* **Systems Building Skills**:- Http/Grpc/TCP Backend
+
+* **Data**:- SQL, Flink, Pandas, Matplotlib
+
+* **ML**:- Deploying/Training of ML models for online inference, using technologies like
+
+* **System Management**:- Linux, Docker, Aws, Git
+
+## Employment History
+
+**ML Engineer - [Pepperfy.com](https://www.pepperfry.com/)<br />
+Mumbai, 2022 - 2023**
+
+Projects:-
+
+* User interaction driven dynamic product ranking system
+* Image search
+
+**Software Engineer Intern [IBM](https://www.ibm.com/us-en)<br />
+Bengaluru, 2019(6 months)**
+
+Project:-
+
+* Java log visualization tool
+
+## Publications
+None
+
+## Education
+
+**[PhD, IIT Delhi](https://home.iitd.ac.in/)<br />
+Delhi, 2023 –**
+
+**[M.Tech in Computer Science, IIT Delhi](https://home.iitd.ac.in/)<br />
+Delhi, 2020 – 2022**
+
+* Built Autonomous vehicle simulation using Unity and Carla as Major Project
+
+**[B.Tech in Computer Science, Peoples University, Bhopal](https://www.peoplesuniversity.edu.in/)<br />
+Bhopal, 2016 – 2020**
+
+* Built Automatic attendance system using image search as Major Project
+
+
+## Personal Details
+
+* Location: <b>[IIT Delhi](https://maps.app.goo.gl/Z5khQzRR76p54N3P8)</b>
+* Linkedin: <b>[Satyam Jay](www.linkedin.com/in/satyam-jay-72858412b)</b>
+* Github: <b>[satyamjay-iitd](https://github.com/satyamjay-iitd)</b>
+
+

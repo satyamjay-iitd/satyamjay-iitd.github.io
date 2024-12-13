@@ -42,8 +42,24 @@ theme:
 plugins:
   - search
   - social
+  - rss:
+      match_path: blog/posts/.* 
+      date_from_meta:
+        as_creation: date.created
+      categories:
+        - categories
+        - tags 
   - blog:
       blog_toc: true
+      post_excerpt: required
+      categories_allowed:
+        - system
+        - streaming
+        - latency
+        - article
+        - list
+        - paper
+
 
 markdown_extensions:
   - admonition

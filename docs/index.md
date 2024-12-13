@@ -55,7 +55,7 @@ Bhopal, 2016 – 2020**
 ## Personal Details
 
 * Location: <b>[IIT Delhi](https://maps.app.goo.gl/Z5khQzRR76p54N3P8)</b>
-* Linkedin: <b>[Satyam Jay](www.linkedin.com/in/satyam-jay-72858412b)</b>
+* Linkedin: <b>[Satyam Jay](https://www.linkedin.com/in/satyam-jay-72858412b)</b>
 * Github: <b>[satyamjay-iitd](https://github.com/satyamjay-iitd)</b>
 
 

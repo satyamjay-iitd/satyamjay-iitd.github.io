@@ -2,7 +2,7 @@
 
 ## Profile
 
-* Pursuing PhD in Distributed systems under the guidance of [Prof. Abhilash Jindal](https://abhilash-jindal.com/).
+* Pursuing PhD in Distributed systems under the guidance of **[Prof. Abhilash Jindal](https://abhilash-jindal.com/)**.
 
 ## Skills
 
@@ -18,16 +18,16 @@
 
 ## Employment History
 
-**ML Engineer - [Pepperfy.com](https://www.pepperfry.com/)<br />
-Mumbai, 2022 - 2023**
+**ML Engineer** - [Pepperfy.com](https://www.pepperfry.com/)<br />
+Mumbai, 2022 - 2023
 
 Projects:-
 
 * User interaction driven dynamic product ranking system
 * Image search
 
-**Software Engineer Intern [IBM](https://www.ibm.com/us-en)<br />
-Bengaluru, 2019(6 months)**
+**Software Engineer Intern** [IBM](https://www.ibm.com/us-en)<br />
+Bengaluru, 2019(6 months)
 
 Project:-
 
@@ -38,16 +38,16 @@ None
 
 ## Education
 
-**[PhD, IIT Delhi](https://home.iitd.ac.in/)<br />
-Delhi, 2023 –**
+**[PhD, IIT Delhi](https://home.iitd.ac.in/)**<br />
+Delhi, 2023 –
 
-**[M.Tech in Computer Science, IIT Delhi](https://home.iitd.ac.in/)<br />
-Delhi, 2020 – 2022**
+**[M.Tech in Computer Science, IIT Delhi](https://home.iitd.ac.in/)**<br />
+Delhi, 2020 – 2022
 
 * Built Autonomous vehicle simulation using Unity and Carla as Major Project
 
-**[B.Tech in Computer Science, Peoples University, Bhopal](https://www.peoplesuniversity.edu.in/)<br />
-Bhopal, 2016 – 2020**
+**[B.Tech in Computer Science, Peoples University, Bhopal](https://www.peoplesuniversity.edu.in/)**<br />
+Bhopal, 2016 – 2020
 
 * Built Automatic attendance system using image search as Major Project
 
@@ -57,5 +57,6 @@ Bhopal, 2016 – 2020**
 * Location: <b>[IIT Delhi](https://maps.app.goo.gl/Z5khQzRR76p54N3P8)</b>
 * Linkedin: <b>[Satyam Jay](https://www.linkedin.com/in/satyam-jay-72858412b)</b>
 * Github: <b>[satyamjay-iitd](https://github.com/satyamjay-iitd)</b>
+* [![RSS Feed](https://img.icons8.com/?size=30&id=QHAhlqNrv1Nz&format=png&color=000000)](/feed_rss_created.xml)
 
 

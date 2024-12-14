@@ -1,5 +1,6 @@
 site_name: Satyam Jay
 site_url: https://satyamjay-iitd.github.io/
+site_description: Satyam's website
 
 theme:
   name: material
@@ -73,3 +74,7 @@ extra:
       link: https://github.com/satyamjay-iitd
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/satyam-jay-72858412b
+    - icon: fontawesome/solid/rss
+      link: /feed_rss_created.xml
+      name: "Subscribe to RSS Feed"
+

@@ -7,7 +7,7 @@ tags:
   - rust
 ---
 
-#  My first Rust `derive macro`.
+#  My first Rust `macro`.
 
 
 <!-- more -->

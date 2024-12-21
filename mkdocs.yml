@@ -6,6 +6,7 @@ theme:
   name: material
   icon:
     logo: fontawesome/solid/computer
+    annotation: material/arrow-right-circle
   favicon: assets/favicon.png
   font:
     text: Roboto
@@ -18,7 +19,7 @@ theme:
     - search.suggest
     - search.highlight
     - content.tabs.link
-    - content.code.annotation
+    - content.code.annotate 
     - content.code.copy
 
   language: en
@@ -50,6 +51,7 @@ plugins:
       categories:
         - categories
         - tags 
+
   - blog:
       blog_toc: true
       post_excerpt: required
@@ -60,12 +62,22 @@ plugins:
         - article
         - list
         - paper
+        - dev-diary
 
 
 markdown_extensions:
+  - tables
   - admonition
+  - attr_list
+  - md_in_html
   - pymdownx.details
   - pymdownx.superfences
+  - pymdownx.snippets
+  - pymdownx.inlinehilite
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
 
 
 extra:

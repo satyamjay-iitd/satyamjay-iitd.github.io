@@ -4,12 +4,17 @@ site_description: Satyam's website
 
 theme:
   name: material
+  custom_dir: overrides
   icon:
     logo: fontawesome/solid/computer
     annotation: material/arrow-right-circle
   favicon: assets/favicon.png
   font:
     text: Roboto
+    code: Roboto Mono
+  features:
+    - header.autohide
+    - navigation.tabs
 
   features:
     - navigation.tabs
@@ -27,7 +32,7 @@ theme:
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: brown
+      primary: orange
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
@@ -35,7 +40,7 @@ theme:
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: brown
+      primary: orange
       accent: blue
       toggle:
         icon: material/brightness-4
@@ -89,4 +94,5 @@ extra:
     - icon: fontawesome/solid/rss
       link: /feed_rss_created.xml
       name: "Subscribe to RSS Feed"
+  generator: false
 

@@ -1,3 +1,10 @@
+---
+hide:
+  - navigation
+  - toc
+comments: false
+---
+
 #Curriculum Vitae
 
 ## Profile
@@ -58,5 +65,12 @@ Bhopal, 2016 – 2020
 * Linkedin: <b>[Satyam Jay](https://www.linkedin.com/in/satyam-jay-72858412b)</b>
 * Github: <b>[satyamjay-iitd](https://github.com/satyamjay-iitd)</b>
 * [![RSS Feed](https://img.icons8.com/?size=30&id=QHAhlqNrv1Nz&format=png&color=000000)](/feed_rss_created.xml)
+
+<figure markdown="span">
+  ![Image title](https://ghchart.rshah.org/satyamjay-iitd){ width="650" }
+  <figcaption>Github Contributions</figcaption>
+</figure>
+
+
 
 

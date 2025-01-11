@@ -5,6 +5,7 @@ categories:
   - dev-diary
 tags:
   - rust
+comments: true
 ---
 
 #  My first Rust `macro`.

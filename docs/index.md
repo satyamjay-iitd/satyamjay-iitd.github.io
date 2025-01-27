@@ -15,11 +15,11 @@ comments: false
 
 * **Programming Languages**:- Rust, Python, Java, C, C++
 
-* **Systems Building Skills**:- Http/Grpc/TCP Backend
+* **Systems Building Skills**:- Http/Grpc/TCP Backend using FastAPI/Tokio
 
 * **Data**:- SQL, Flink, Pandas, Matplotlib
 
-* **ML**:- Deploying/Training of ML models for online inference, using technologies like
+* **ML**:- Deploying/Training of ML models for online inference, using Pytorch/Triton
 
 * **System Management**:- Linux, Docker, Aws, Git
 
@@ -30,8 +30,9 @@ Mumbai, 2022 - 2023
 
 Projects:-
 
-* User interaction driven dynamic product ranking system
-* Image search
+* Dynamic Product Ranking System:
+  Developed a user-driven recommendation system that personalized the homepage product rankings based on user search history and browsing behavior, enhancing engagement and conversion rates.
+* Image-Based Product Search: Implemented an image search feature that enabled users to discover visually similar products by uploading images, leveraging deep learning-based computer vision techniques.
 
 **Software Engineer Intern** [IBM](https://www.ibm.com/us-en)<br />
 Bengaluru, 2019(6 months)

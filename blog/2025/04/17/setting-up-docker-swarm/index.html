@@ -10,23 +10,29 @@
       
       
       
+        <link rel="canonical" href="https://satyamjay-iitd.github.io/blog/2025/04/17/setting-up-docker-swarm/">
       
       
+        <link rel="prev" href="../../../03/26/why-struct-stditermap-doesnt-constraint-i-to-be-an-iterator/">
       
-        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="/feed_rss_created.xml">
-        <link rel="alternate" type="application/rss+xml" title="RSS feed of updated content" href="/feed_rss_updated.xml">
       
-      <link rel="icon" href="/assets/favicon.png">
+        <link rel="next" href="../setting-up-k3s-cluster/">
+      
+      
+        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../../../../../feed_rss_created.xml">
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of updated content" href="../../../../../feed_rss_updated.xml">
+      
+      <link rel="icon" href="../../../../../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
     
     
   <title>SatyamJ</title>
 
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.342714a4.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.342714a4.min.css">
       
         
-        <link rel="stylesheet" href="/assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -51,11 +57,37 @@
       
     
     
-    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Setting up Docker Swarm - Satyam Jay" >
+      
+        <meta  property="og:description"  content="Satyam's website" >
+      
+        <meta  property="og:image"  content="https://satyamjay-iitd.github.io/assets/images/social/blog/posts/setup_docker_swarm.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://satyamjay-iitd.github.io/blog/2025/04/17/setting-up-docker-swarm/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Setting up Docker Swarm - Satyam Jay" >
+      
+        <meta  name="twitter:description"  content="Satyam's website" >
+      
+        <meta  name="twitter:image"  content="https://satyamjay-iitd.github.io/assets/images/social/blog/posts/setup_docker_swarm.png" >
+      
     
     
   </head>
@@ -76,6 +108,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#setting-up-docker-swarm" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -86,7 +123,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/." title="Satyam Jay" class="md-header__button md-logo" aria-label="Satyam Jay" data-md-component="logo">
+    <a href="../../../../.." title="Satyam Jay" class="md-header__button md-logo" aria-label="Satyam Jay" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M384 96v224H64V96zM64 32C28.7 32 0 60.7 0 96v224c0 35.3 28.7 64 64 64h117.3l-10.7 32H96c-17.7 0-32 14.3-32 32s14.3 32 32 32h256c17.7 0 32-14.3 32-32s-14.3-32-32-32h-74.7l-10.7-32H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm464 0c-26.5 0-48 21.5-48 48v352c0 26.5 21.5 48 48 48h64c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm16 64h32c8.8 0 16 7.2 16 16s-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16s7.2-16 16-16m-16 80c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16s-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16m32 160a32 32 0 1 1 0 64 32 32 0 1 1 0-64"/></svg>
@@ -106,7 +143,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Setting up Docker Swarm
             
           </span>
         </div>
@@ -207,7 +244,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/." class="md-tabs__link">
+      <a href="../../../../.." class="md-tabs__link">
         
   
   
@@ -226,7 +263,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/contact/" class="md-tabs__link">
+      <a href="../../../../../contact/" class="md-tabs__link">
         
   
   
@@ -243,11 +280,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="/blog/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../../" class="md-tabs__link">
           
   
   
@@ -270,7 +309,9 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -283,7 +324,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="Satyam Jay" class="md-nav__button md-logo" aria-label="Satyam Jay" data-md-component="logo">
+    <a href="../../../../.." title="Satyam Jay" class="md-nav__button md-logo" aria-label="Satyam Jay" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M384 96v224H64V96zM64 32C28.7 32 0 60.7 0 96v224c0 35.3 28.7 64 64 64h117.3l-10.7 32H96c-17.7 0-32 14.3-32 32s14.3 32 32 32h256c17.7 0 32-14.3 32-32s-14.3-32-32-32h-74.7l-10.7-32H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm464 0c-26.5 0-48 21.5-48 48v352c0 26.5 21.5 48 48 48h64c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm16 64h32c8.8 0 16 7.2 16 16s-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16s7.2-16 16-16m-16 80c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16s-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16m32 160a32 32 0 1 1 0 64 32 32 0 1 1 0-64"/></svg>
@@ -301,7 +342,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/." class="md-nav__link">
+      <a href="../../../../.." class="md-nav__link">
         
   
   
@@ -323,7 +364,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/contact/" class="md-nav__link">
+      <a href="../../../../../contact/" class="md-nav__link">
         
   
   
@@ -342,26 +383,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -374,7 +420,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Blog
@@ -385,12 +431,14 @@
                 
   
   
+    
+  
   
     
   
   
-    <li class="md-nav__item">
-      <a href="/blog/" class="md-nav__link">
+    <li class="md-nav__item md-nav__item--active">
+      <a href="../../../../" class="md-nav__link">
         
   
   
@@ -419,17 +467,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
         
           
-          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
             
   
   
@@ -458,7 +509,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/blog/archive/2025/" class="md-nav__link">
+      <a href="../../../../archive/2025/" class="md-nav__link">
         
   
   
@@ -483,7 +534,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/blog/archive/2024/" class="md-nav__link">
+      <a href="../../../../archive/2024/" class="md-nav__link">
         
   
   
@@ -520,17 +571,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
         
           
-          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
             
   
   
@@ -559,7 +613,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/blog/category/article/" class="md-nav__link">
+      <a href="../../../../category/article/" class="md-nav__link">
         
   
   
@@ -584,7 +638,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/blog/category/dev-diary/" class="md-nav__link">
+      <a href="../../../../category/dev-diary/" class="md-nav__link">
         
   
   
@@ -609,7 +663,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/blog/category/latency/" class="md-nav__link">
+      <a href="../../../../category/latency/" class="md-nav__link">
         
   
   
@@ -634,7 +688,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/blog/category/list/" class="md-nav__link">
+      <a href="../../../../category/list/" class="md-nav__link">
         
   
   
@@ -659,7 +713,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/blog/category/paper/" class="md-nav__link">
+      <a href="../../../../category/paper/" class="md-nav__link">
         
   
   
@@ -684,7 +738,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/blog/category/research-diary/" class="md-nav__link">
+      <a href="../../../../category/research-diary/" class="md-nav__link">
         
   
   
@@ -709,7 +763,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/blog/category/streaming/" class="md-nav__link">
+      <a href="../../../../category/streaming/" class="md-nav__link">
         
   
   
@@ -734,7 +788,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/blog/category/system/" class="md-nav__link">
+      <a href="../../../../category/system/" class="md-nav__link">
         
   
   
@@ -759,7 +813,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/blog/category/telemetry/" class="md-nav__link">
+      <a href="../../../../category/telemetry/" class="md-nav__link">
         
   
   
@@ -799,14 +853,321 @@
             
           
           
-            <div class="md-content" data-md-component="content">
-              <article class="md-content__inner md-typeset">
-                
-  <h1>404 - Not found</h1>
-
-              </article>
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../../" class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
             </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
+                        <time datetime="2025-04-17 00:00:00+00:00" class="md-ellipsis">April 17, 2025</time>
+                      </div>
+                    </li>
+                    
+                    
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3v15h3V3zm3 2 4 13 3-1-4-13zM5 5v13h3V5zM3 19v2h18v-2z"/></svg>
+                          <span class="md-ellipsis">
+                            in
+                            
+                              <a href="../../../../category/dev-diary/">dev-diary</a></span>
+                        </div>
+                      </li>
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              2 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+            
+          </nav>
           
+            
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#steps-to-initialize-the-swarm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Steps to initialize the Swarm.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#steps-to-start-the-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      Steps to start the service.
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+  
+
+
+
+
+<div><h1 id="setting-up-docker-swarm">Setting up Docker Swarm</h1>
+<!-- more -->
+
+<p>Creating this diary entry for future reference, on how to setup the docker swarm.
+This setup might be too specific for my current needs of Tensile Project. Setup I want to achieve:-</p>
+<pre class="mermaid"><code>graph TD
+  Manager["Manager Node&lt;br/&gt;(Leader)"]
+  Worker1["Worker Node&lt;br/&gt;node1"]
+  Worker2["Worker Node&lt;br/&gt;node2"]
+  Worker3["Worker Node&lt;br/&gt;node3"]
+  Worker4["Worker Node&lt;br/&gt;node4"]
+  subgraph Docker Swarm Cluster
+      Manager
+      Worker1
+      Worker2
+      Worker3
+      Worker4
+  end
+  Worker1 --&gt; Service1["tensile_worker"]
+  Worker2 --&gt; Service2["tensile_worker"]
+  Worker3 --&gt; Service3["tensile_worker"]
+  Worker4 --&gt; Service4["tensile_worker"]
+
+  Manager -.-&gt; X1["tensile_coordinator"]
+</code></pre>
+<h2 id="prerequisites">Prerequisites</h2>
+<ol>
+<li>Docker is installed on all the host machines that is going to be part of the cluster.</li>
+<li>All host machines are able to connect to each other and Port <code>2377</code>, <code>7946</code> and <code>4789</code> are open.</li>
+<li>I also made sure all of them have the same version of docker engine. I dont
+know if this is required or not</li>
+</ol>
+<h2 id="steps-to-initialize-the-swarm">Steps to initialize the Swarm.</h2>
+<ol>
+<li>On the Manager node, initialize the swarm using: <code>docker swarm init --advertise-addr &lt;MANAGER-IP&gt;</code></li>
+<li>Make the worker nodes join the swarm using
+<code>docker swarm join --token &lt;TOKEN&gt; &lt;MANAGER_ID&gt;:2377</code>. You will get the token
+when you initialized the swarm on the manager node.</li>
+<li>Check if the nodes have joined the cluster using <code>docker node ls</code>.
+For example it outputs following in my case.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>HOSTNAME</th>
+<th>STATUS</th>
+<th>AVAILABILITY</th>
+<th>MANAGER STATUS</th>
+<th>ENGINE VERSION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>o9hyne818eeig834qe32arhy8 *</td>
+<td>dell-OptiPlex-3060</td>
+<td>Ready</td>
+<td>Active</td>
+<td>Leader</td>
+<td>28.0.4</td>
+</tr>
+<tr>
+<td>xxurgpcq11twzfyrf5epf3yro</td>
+<td>node1</td>
+<td>Ready</td>
+<td>Active</td>
+<td></td>
+<td>28.0.4</td>
+</tr>
+<tr>
+<td>ggvty0hj0j3f32dbe3rqzw8k5</td>
+<td>node2</td>
+<td>Ready</td>
+<td>Active</td>
+<td></td>
+<td>28.0.4</td>
+</tr>
+<tr>
+<td>8dfwhodu6qgt4igbqu8v4uv0a</td>
+<td>node3</td>
+<td>Ready</td>
+<td>Active</td>
+<td></td>
+<td>28.0.4</td>
+</tr>
+<tr>
+<td>ibc0jo9o849ae1sy1ypld7rk6</td>
+<td>node4</td>
+<td>Ready</td>
+<td>Active</td>
+<td></td>
+<td>28.0.4</td>
+</tr>
+</tbody>
+</table>
+<h2 id="steps-to-start-the-service">Steps to start the service.</h2>
+<p>Now I want to start a single Tensile Worker service on each node (4 in total). I have already built
+the image of the Tensile worker.</p>
+<ol>
+<li>
+<p>First label the node1, node2, node3 and node4 with the role of tensile worker.
+This is required because we dont want to spwan a worker on the manager node. Run this on the manager node.
+<code>docker node update --label-add role=tensie_worker node1</code></p>
+</li>
+<li>
+<p>Now I start the service using following. Note that we also spawn them in a global mode, because we
+only want one instance per node. Also we are using a local docker registry hosted on <code>10.237.23.157</code>.
+<code>--publish mode=host</code> will publish the given port on each node, i.e. you can access port 6000 on
+each node individually.</p>
+</li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>docker<span class="w"> </span>service<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span>--name<span class="w"> </span>tensile_worker<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span>--mode<span class="w"> </span>global<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span>--constraint<span class="w"> </span><span class="s1">'node.labels.role == tensile_worker'</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span>--restart-condition<span class="w"> </span>any<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span>--env<span class="w"> </span><span class="nv">DATABASE_URL</span><span class="o">=</span><span class="s2">"blahblah"</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span>--publish<span class="w"> </span><span class="nv">mode</span><span class="o">=</span>host,target<span class="o">=</span><span class="m">6000</span>,published<span class="o">=</span><span class="m">6000</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="m">10</span>.237.23.157:5000/tensile-worker:latest
+</span></code></pre></div></div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+  <h2 id="__comments">Comments</h2>
+  <!-- Insert generated snippet here -->
+  <script src="https://giscus.app/client.js"
+          data-repo="satyamjay-iitd/satyamjay-iitd.github.io"
+          data-repo-id="MDEwOlJlcG9zaXRvcnkzNDc5Mzk5NDk="
+          data-category="General"
+          data-category-id="DIC_kwDOFL0kbc4Cld5p"
+          data-mapping="pathname"
+          data-strict="0"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="noborder_dark"
+          data-lang="en"
+          crossorigin="anonymous"
+          async>
+  </script>
+  <!-- Synchronize Giscus theme with palette -->
+
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    // Set palette on initial load
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate"
+        ? "transparent_dark"
+        : "light"
+
+      // Instruct Giscus to set theme
+      giscus.setAttribute("data-theme", theme) 
+    }
+
+    // Register event handlers after documented loaded
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate"
+            ? "transparent_dark"
+            : "light"
+
+          // Instruct Giscus to change theme
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
+
+      
+    </article>
+  </div>
+
           
   <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
 
@@ -876,10 +1237,10 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "/", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotate", "content.code.copy"], "search": "/assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotate", "content.code.copy"], "search": "../../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="/assets/javascripts/bundle.13a4f30d.min.js"></script>
+      <script src="../../../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
       
     
   </body>

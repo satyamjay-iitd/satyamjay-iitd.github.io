@@ -10,13 +10,11 @@
       
       
       
-        <link rel="canonical" href="https://satyamjay-iitd.github.io/blog/2024/12/13/how-to-measure-latency-in-data-streaming-systems/">
+        <link rel="canonical" href="https://satyamjay-iitd.github.io/blog/2025/06/25/setting-up-open-telemetry-in-rust/">
       
       
-        <link rel="prev" href="../../09/reading-list-research-papers/">
+        <link rel="prev" href="../../../04/17/setting-up-k3s-cluster/">
       
-      
-        <link rel="next" href="../../21/my-first-rust-macro/">
       
       
         <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../../../../../feed_rss_created.xml">
@@ -66,11 +64,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="How to measure latency in data streaming systems? - Satyam Jay" >
+        <meta  property="og:title"  content="Setting up open telemetry in Rust - Satyam Jay" >
       
         <meta  property="og:description"  content="Satyam's website" >
       
-        <meta  property="og:image"  content="https://satyamjay-iitd.github.io/assets/images/social/blog/posts/latency_measurement_in_streaming.png" >
+        <meta  property="og:image"  content="https://satyamjay-iitd.github.io/assets/images/social/blog/posts/otel_rust.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -78,15 +76,15 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://satyamjay-iitd.github.io/blog/2024/12/13/how-to-measure-latency-in-data-streaming-systems/" >
+        <meta  property="og:url"  content="https://satyamjay-iitd.github.io/blog/2025/06/25/setting-up-open-telemetry-in-rust/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="How to measure latency in data streaming systems? - Satyam Jay" >
+        <meta  name="twitter:title"  content="Setting up open telemetry in Rust - Satyam Jay" >
       
         <meta  name="twitter:description"  content="Satyam's website" >
       
-        <meta  name="twitter:image"  content="https://satyamjay-iitd.github.io/assets/images/social/blog/posts/latency_measurement_in_streaming.png" >
+        <meta  name="twitter:image"  content="https://satyamjay-iitd.github.io/assets/images/social/blog/posts/otel_rust.png" >
       
     
     
@@ -109,7 +107,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#how-to-measure-latency-in-data-streaming-systems" class="md-skip">
+        <a href="#setting-up-open-telemetry-in-rust" class="md-skip">
           Skip to content
         </a>
       
@@ -143,7 +141,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              How to measure latency in data streaming systems?
+              Setting up open telemetry in Rust
             
           </span>
         </div>
@@ -881,7 +879,7 @@
                     <li class="md-nav__item">
                       <div class="md-nav__link">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
-                        <time datetime="2024-12-13 00:00:00+00:00" class="md-ellipsis">December 13, 2024</time>
+                        <time datetime="2025-06-25 00:00:00+00:00" class="md-ellipsis">June 25, 2025</time>
                       </div>
                     </li>
                     
@@ -893,9 +891,7 @@
                             in
                             
                               <a href="../../../../category/system/">system</a>, 
-                              <a href="../../../../category/streaming/">streaming</a>, 
-                              <a href="../../../../category/latency/">latency</a>, 
-                              <a href="../../../../category/article/">article</a></span>
+                              <a href="../../../../category/telemetry/">telemetry</a></span>
                         </div>
                       </li>
                     
@@ -935,18 +931,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
+  <a href="#objectives" class="md-nav__link">
     <span class="md-ellipsis">
-      Introduction
+      Objectives
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
+  <a href="#research" class="md-nav__link">
     <span class="md-ellipsis">
-      References
+      Research
     </span>
   </a>
   
@@ -967,15 +963,63 @@
 
 
 
-<div><h1 id="how-to-measure-latency-in-data-streaming-systems">How to measure latency in data streaming systems?</h1>
+<div><h1 id="setting-up-open-telemetry-in-rust">Setting up open telemetry in Rust</h1>
 <!-- more -->
 
-<h2 id="introduction">Introduction</h2>
-<p>Measuring latency in batch processing is trivial.</p>
-<h2 id="references">References</h2>
+<h2 id="objectives">Objectives</h2>
 <ol>
-<li><a href="https://arxiv.org/pdf/1802.08496">Benchmarking Distributed Stream Data Processing Systems</a></li>
-</ol></div>
+<li>Observe traces of execution of a distributed system.</li>
+<li>Should be able to turn tracing off at compile time. </li>
+</ol>
+<h2 id="research">Research</h2>
+<p>Initially I was confused with dozens of concepts that were introduced to me when I
+just want log some things. For example, consider the "basic" example provided by
+<a href="https://github.com/open-telemetry/opentelemetry-rust">opentelemetry crate</a>.</p>
+<div class="language-rust highlight"><span class="filename">WTF is going on here?</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">use</span><span class="w"> </span><span class="n">opentelemetry_appender_tracing</span><span class="p">::</span><span class="n">layer</span><span class="p">;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">use</span><span class="w"> </span><span class="n">opentelemetry_sdk</span><span class="p">::</span><span class="n">logs</span><span class="p">::</span><span class="n">SdkLoggerProvider</span><span class="p">;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">use</span><span class="w"> </span><span class="n">opentelemetry_sdk</span><span class="p">::</span><span class="n">Resource</span><span class="p">;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">use</span><span class="w"> </span><span class="n">tracing</span><span class="p">::</span><span class="n">error</span><span class="p">;</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">use</span><span class="w"> </span><span class="n">tracing_subscriber</span><span class="p">::{</span><span class="n">prelude</span><span class="p">::</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">EnvFilter</span><span class="p">};</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="k">fn</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">exporter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">opentelemetry_stdout</span><span class="p">::</span><span class="n">LogExporter</span><span class="p">::</span><span class="n">default</span><span class="p">();</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">provider</span><span class="p">:</span><span class="w"> </span><span class="nc">SdkLoggerProvider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SdkLoggerProvider</span><span class="p">::</span><span class="n">builder</span><span class="p">()</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">        </span><span class="p">.</span><span class="n">with_resource</span><span class="p">(</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">            </span><span class="n">Resource</span><span class="p">::</span><span class="n">builder</span><span class="p">()</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">                </span><span class="p">.</span><span class="n">with_service_name</span><span class="p">(</span><span class="s">"log-appender-tracing-example"</span><span class="p">)</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">                </span><span class="p">.</span><span class="n">build</span><span class="p">(),</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">        </span><span class="p">)</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">        </span><span class="p">.</span><span class="n">with_simple_exporter</span><span class="p">(</span><span class="n">exporter</span><span class="p">)</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">        </span><span class="p">.</span><span class="n">build</span><span class="p">();</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">filter_otel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EnvFilter</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="s">"info"</span><span class="p">)</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">        </span><span class="p">.</span><span class="n">add_directive</span><span class="p">(</span><span class="s">"hyper=off"</span><span class="p">.</span><span class="n">parse</span><span class="p">().</span><span class="n">unwrap</span><span class="p">())</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">        </span><span class="p">.</span><span class="n">add_directive</span><span class="p">(</span><span class="s">"tonic=off"</span><span class="p">.</span><span class="n">parse</span><span class="p">().</span><span class="n">unwrap</span><span class="p">())</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">        </span><span class="p">.</span><span class="n">add_directive</span><span class="p">(</span><span class="s">"h2=off"</span><span class="p">.</span><span class="n">parse</span><span class="p">().</span><span class="n">unwrap</span><span class="p">())</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">        </span><span class="p">.</span><span class="n">add_directive</span><span class="p">(</span><span class="s">"reqwest=off"</span><span class="p">.</span><span class="n">parse</span><span class="p">().</span><span class="n">unwrap</span><span class="p">());</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">otel_layer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">layer</span><span class="p">::</span><span class="n">OpenTelemetryTracingBridge</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="o">&amp;</span><span class="n">provider</span><span class="p">).</span><span class="n">with_filter</span><span class="p">(</span><span class="n">filter_otel</span><span class="p">);</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">filter_fmt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EnvFilter</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="s">"info"</span><span class="p">).</span><span class="n">add_directive</span><span class="p">(</span><span class="s">"opentelemetry=debug"</span><span class="p">.</span><span class="n">parse</span><span class="p">().</span><span class="n">unwrap</span><span class="p">());</span>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">fmt_layer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tracing_subscriber</span><span class="p">::</span><span class="n">fmt</span><span class="p">::</span><span class="n">layer</span><span class="p">()</span>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">        </span><span class="p">.</span><span class="n">with_thread_names</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="w">        </span><span class="p">.</span><span class="n">with_filter</span><span class="p">(</span><span class="n">filter_fmt</span><span class="p">);</span>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="w">    </span><span class="n">tracing_subscriber</span><span class="p">::</span><span class="n">registry</span><span class="p">()</span>
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="w">        </span><span class="p">.</span><span class="n">with</span><span class="p">(</span><span class="n">otel_layer</span><span class="p">)</span>
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="w">        </span><span class="p">.</span><span class="n">with</span><span class="p">(</span><span class="n">fmt_layer</span><span class="p">)</span>
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="w">        </span><span class="p">.</span><span class="n">init</span><span class="p">();</span>
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="w">    </span><span class="n">error</span><span class="o">!</span><span class="p">(</span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="s">"my-event-name"</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">:</span><span class="w"> </span><span class="s">"my-system"</span><span class="p">,</span><span class="w"> </span><span class="n">event_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="n">user_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"otel"</span><span class="p">,</span><span class="w"> </span><span class="n">user_email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"otel@opentelemetry.io"</span><span class="p">,</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"This is an example message"</span><span class="p">);</span>
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">provider</span><span class="p">.</span><span class="n">shutdown</span><span class="p">();</span>
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>There is a <strong>provider</strong>, <strong>exporter</strong>, <strong>otel_layer</strong>, <strong>fmt_layer</strong>, and a <strong>subscriber</strong>, just to
+log something.</p>
+<p>I searched for something simpler and found
+<a href="https://github.com/tokio-rs/tracing-opentelemetry%0A/tree/v0.1.x">tokio::tracing-opentelemetry</a>.
+It builds on top of the opentelemetry and hides some of the implementation detail, which is nice.
+I want to avoid learning about all the nonsense as long as I can.
+But even this is not straightforward</p></div>
 
 
 

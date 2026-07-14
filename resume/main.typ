@@ -48,12 +48,10 @@
   // Uncomment the line below if you want edu formatting to be consistent with everything else
   consistent: true
 )
-- Main Area of work: Metastable failure mitigation in distributed data streaming system.
-- Currently working on:
-  - Building new protocols for online rescaling and fault recovery of distributed systems in order to mitigate the metastable failures.
-  - Exploring oppurtunites for optimization in distributed ML based video pocessing queries, and benchmarking current SOTAs
-- Teaching Assistant: Cloud Computing, Software Design Practices
-  // - Relevant Coursework: Data Structures, Program Development, Microprocessors, Abstract Algebra I: Groups and Rings, Linear Algebra, Discrete Mathematics, Multivariable & Single Variable Calculus, Principles and Practice of Comp Sci
+- Research:
+  - *Online Reconfiguration of Data Streaming Systems* (under review, EuroSys): on-the-fly rescaling of stream engines with minimal latency impact.
+  - *Querying Spatio-Temporal Databases* (under review, SIGMOD): trajectory query engine modeling object motion as piecewise polynomials.
+- Teaching Assistant: Cloud Computing, Software Design Practices, Operating Systems, Database.
 
 #edu(
   institution: "Indian Institute of Technology, Delhi",
@@ -86,7 +84,7 @@
   dates: dates-helper(start-date: "July 2022", end-date: "July 2023"),
 )
 - Enhanced recommendation engine by integrating user purchase history and search history data in the existing algorithm
-- Developed a reverse image search engine from scratch using feature vectors from the DL models
+- Built a prototype reverse image search engine using feature vectors from DL models
 
 #work(
   title: "Software Engineering Internship",
@@ -94,7 +92,7 @@
   company: "IBM",
   dates: dates-helper(start-date: "Aug 2019", end-date: "Dec 2019"),
 )
-- Developed an automated system for detecting and reporting compliance breaches.
+- Built an automated system to detect and report HIPAA-compliance violations across the compute infrastructure.
 
 == Projects
 
@@ -102,27 +100,34 @@
   name: "Tensile",
   // Role is optional
   role: "Author",
+  url: "github.com/satyamjay-iitd/tensile_flink",
 )
-- High-performance Flink-like streaming data processing system in Rust; built as a research testbed with aspirations for industry adoption.Currently capable of executing job DAGs, online rescaling and fault recovery.
+- Designed a novel protocol for online reconfiguration (on-the-fly rescaling) of stream processing with minimal latency impact, supporting job-DAG execution and fault recovery.
+- Showed the protocol is engine-agnostic by implementing it in both a custom Rust engine and Apache Flink 1.17; evaluated on Nexmark against DRRS, Meces, and Megaphone with up to 20× lower reconfiguration latency.
 
 #project(
-  name: "Popper",
-  role: "Maintainer",
+  name: "TrQL",
+  role: "Author",
+  url: "github.com/satyamjay-iitd/frameql",
 )
-- Data analytics system specialized for ML workflows, capable of handling inflight errors.
+- Rust query engine + DSL for spatio-temporal video queries; models object trajectories as piecewise quadratic polynomials and evaluates an interval-valued algebra by root-finding, up to 126× faster than SOTA with 10× less memory.
 
 #project(
-  name: "C Compiler using LLVM"
+  name: "Streamary",
+  role: "Author",
+  url: "github.com/satyamjay-iitd/streamary",
 )
-- Built this as part of lab assignment in compiler course.
+- Streaming SQL engine in Rust; parses SQL through an Apache Calcite / DataFusion planner into a physical plan, generates operator code, and executes it on a custom actor runtime.
 
-== Awards
--  Excellent TA Award for Cloud Computing Course (2024)
--  1st place in hackathon organized by IBM. (2019)
+*Additional Projects:* ReActor (Rust distributed actor framework with job manager and RPC control plane), Aperture (distributed Rust video-analytics pipeline across Jetson-edge and server; a DeepStream alternative with TensorRT / ONNX inference), and an LLVM-based C compiler.
+
+// == Awards
+// -  Excellent TA Award for Cloud Computing Course (2024)
+// -  1st place in hackathon organized by IBM. (2019)
 
 == Skills
-- *Programming Languages*: Rust, Python, Java, C++
-- *System Building*: HTTP/RPC/TCP Backends using FastAPI/Axum/Spring, GRPC, Tokio
-- *System Deployment*: Linux, Docker, Aws, Git
-- *Data Processing*: SQL, Pandas, Flink, Matplotlib
-- *ML Systems*: Pytorch, Triton, Nvidia DeepStream
+- *Languages*: Rust, Python, Java, C/C++, SQL
+- *Systems & Distributed*: Async Rust (Tokio), gRPC / tarpc, Docker, Kubernetes/K3s, Linux, OpenTelemetry
+- *Data & Query Engines*: Apache Flink, DataFusion / Arrow, Apache Calcite, DuckDB, query planning & codegen
+- *GPU & Video ML*: PyTorch, TensorRT, ONNX Runtime, CUDA (NVDEC/NVENC), NVIDIA DeepStream, Jetson
+- *Tooling*: LLVM, Rust FFI bindings, Criterion benchmarking, Git, Typst/LaTeX

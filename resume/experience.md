@@ -15,8 +15,8 @@ Python, Java, and C++, with prior industry experience as an ML engineer and SWE.
 
 ### PhD, Computer Science — Indian Institute of Technology, Delhi (Aug 2023 – Present)
 - Research areas:
-  - Online reconfiguration of data streaming systems (dynamic, on-the-fly rescaling with minimal latency impact).
-  - Querying spatio-temporal databases (declarative query languages and evaluation over video/object-track data).
+  - Online reconfiguration of data streaming systems (dynamic, on-the-fly rescaling with minimal latency impact). Accepted at EuroSys '27.
+  - Querying spatio-temporal databases (declarative query languages and evaluation over video/object-track data). Under review at SIGMOD.
 - Teaching Assistant: Cloud Computing, Software Design Practices.
 
 ### M.Tech, Computer Science — Indian Institute of Technology, Delhi (Jul 2020 – Jul 2022)
@@ -39,9 +39,12 @@ Python, Java, and C++, with prior industry experience as an ML engineer and SWE.
 ### Tensile — on-the-fly dynamic rescaling for stream processing
 - High-performance stream processing framework in Rust supporting on-the-fly dynamic rescaling with minimal latency impact.
 - Executes job DAGs with online reconfiguration and fault recovery.
-- Prototyped on Apache Flink 1.17; evaluated on the Nexmark benchmark against DRRS, Meces, and Megaphone baselines.
-- Result (candidate-asserted, qualitative): achieves lower reconfiguration latency AND higher sustained throughput than all three baselines. No specific numeric figures are available yet — do NOT invent numbers.
-- Repo: github.com/satyamjay-iitd/tensile_flink
+- Non-blocking protocol: new operator instances start processing immediately and merge the migrated state when it arrives; proven output-consistent with stop-and-resume reconfiguration.
+- Implemented in a 12k-line Rust engine and in Apache Flink.
+- Evaluated on NEXMark (Q3, Q5, Q6, Q7, Q8) against all-at-once (Chi, Trisk) and fluid (Megaphone) reconfiguration.
+- Results (from the accepted EuroSys '27 paper): up to 8.8x lower P99 and 94x lower P95 latency than the best baseline (Q8); peak latency 3 s vs 12 s / 11.2 s on Q3 (~2 GB of migrated state). Use only these numbers.
+- DRRS and Meces are discussed in the paper's related work but are NOT evaluated baselines — do not claim results against them.
+- Repo: github.com/satyamjay-iitd/tensile_artifact
 - Core research project for my "online reconfiguration of data streaming systems" work.
 
 ### FrameQL — query engine + DSL for spatio-temporal / video data
@@ -59,7 +62,7 @@ Python, Java, and C++, with prior industry experience as an ML engineer and SWE.
 
 ### Additional / smaller projects (keep condensed into one summary line)
 - ReActor: distributed actor framework in Rust with a job manager and RPC-based control plane; provides the runtime substrate for scheduling and coordinating streaming operators across nodes. Repo: github.com/satyamjay-iitd/reactor
-- FrameSense: actor-based video-analytics pipeline in Rust running on NVIDIA Jetson Orin (JetPack 6); hardware video decode (NVDEC / V4L2 Jetson Multimedia API) with TensorRT and ONNX Runtime inference. Developed under the video-analytics-iitd lab org (repo name: Aperture) — avoid implying sole ownership.
+- FrameSense: actor-based video-analytics pipeline in Rust running on NVIDIA Jetson Orin (JetPack 6); hardware video decode with TensorRT and ONNX Runtime inference. Developed under the video-analytics-iitd lab org (repo name: Aperture) — avoid implying sole ownership.
 - C Compiler using LLVM: built as part of a compilers course lab assignment.
 
 ## Skills
@@ -70,7 +73,8 @@ Python, Java, and C++, with prior industry experience as an ML engineer and SWE.
 - ML Systems: PyTorch, ONNX Runtime, TensorRT, Triton, NVIDIA DeepStream
 
 ## Notes for the resume writer
-- No publications or preprints yet — do NOT add a Publications line.
+- Publications: "TENSILE: High-Throughput Reconfiguration of Streaming Pipelines." S. Jay, G. Juneja, A. Jindal, V. Jingar, K. Madhukar. EuroSys '27 (to appear). DOI not yet active — do not cite it.
+- main.typ (the typeset resume) has newer hand-edited content than this file for TrQL (formerly FrameQL, with 126x speedup / 10x memory claims), the TA list, and Skills. Treat main.typ as authoritative for those.
 - Do NOT list AWS as a skill (no concrete supporting use).
 - Quantified metrics (latency, throughput, dataset sizes, benchmark deltas) are largely unavailable — ask rather than invent.
 - Target: research/systems engineering roles; no specific job description is being targeted right now.

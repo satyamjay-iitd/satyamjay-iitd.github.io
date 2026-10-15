@@ -49,8 +49,8 @@
   consistent: true
 )
 - Research:
-  - *Online Reconfiguration of Data Streaming Systems* (under review, EuroSys): on-the-fly rescaling of stream engines with minimal latency impact.
-  - *Querying Spatio-Temporal Databases* (under review, SIGMOD): trajectory query engine modeling object motion as piecewise polynomials.
+  - *Online Reconfiguration of Data Streaming Systems* (EuroSys '27): non-blocking rescaling of stream engines.
+  - *Querying Spatio-Temporal Databases* (under review, VLDB): trajectory query engine modeling object motion as piecewise polynomials.
 - Teaching Assistant: Cloud Computing, Software Design Practices, Operating Systems, Database.
 
 #edu(
@@ -61,9 +61,8 @@
   // Uncomment the line below if you want edu formatting to be consistent with everything else
   consistent: true
 )
-- Major Project:- Autonomous Vehicle Simulation in Unity and CARLA
+- Major Project: Autonomous Vehicle Simulation in Unity and CARLA; TA: Machine Learning, Intro to AI
 - Coursework: Adv. Data Structures, Software Systems, Functional Programming, Machine Learning, NLP, Digital Systems 
-- TA: Machine Learning, Intro to AI
 
 // #edu(
 //   institution: "People's University",
@@ -75,6 +74,9 @@
 // )
 // - Major Project:- Automatic attendance system using facial recognition.
 
+
+== Publications
+- *TENSILE: High-Throughput Reconfiguration of Streaming Pipelines.* *S. Jay*, G. Juneja, A. Jindal, V. Jingar, K. Madhukar. _EuroSys '27_ (to appear).
 
 == Work
 #work(
@@ -100,13 +102,13 @@
   name: "Tensile",
   // Role is optional
   role: "Author",
-  url: "github.com/satyamjay-iitd/tensile_flink",
+  url: "github.com/satyamjay-iitd/tensile_artifact",
 )
-- Designed a novel protocol for online reconfiguration (on-the-fly rescaling) of stream processing with minimal latency impact, supporting job-DAG execution and fault recovery.
-- Showed the protocol is engine-agnostic by implementing it in both a custom Rust engine and Apache Flink 1.17; evaluated on Nexmark against DRRS, Meces, and Megaphone with up to 20× lower reconfiguration latency.
+- Non-blocking reconfiguration protocol: new instances process immediately and merge migrated state on arrival; proven correct.
+- Built in Rust (12k lines) and Apache Flink; up to 8.8× lower P99 latency than Chi, Trisk and Megaphone on NEXMark.
 
 #project(
-  name: "TrQL",
+  name: "TrQS",
   role: "Author",
   url: "github.com/satyamjay-iitd/frameql",
 )
@@ -119,7 +121,7 @@
 )
 - Streaming SQL engine in Rust; parses SQL through an Apache Calcite / DataFusion planner into a physical plan, generates operator code, and executes it on a custom actor runtime.
 
-*Additional Projects:* ReActor (Rust distributed actor framework with job manager and RPC control plane), Aperture (distributed Rust video-analytics pipeline across Jetson-edge and server; a DeepStream alternative with TensorRT / ONNX inference), and an LLVM-based C compiler.
+*Additional Projects:* ReActor (Rust distributed actor framework with job manager and RPC control plane), Aperture (distributed Rust video-analytics pipeline across Jetson-edge and server; a DeepStream alternative with TensorRT inference), and an LLVM-based C compiler.
 
 // == Awards
 // -  Excellent TA Award for Cloud Computing Course (2024)
@@ -127,7 +129,7 @@
 
 == Skills
 - *Languages*: Rust, Python, Java, C/C++, SQL
-- *Systems & Distributed*: Async Rust (Tokio), gRPC / tarpc, Docker, Kubernetes/K3s, Linux, OpenTelemetry
-- *Data & Query Engines*: Apache Flink, DataFusion / Arrow, Apache Calcite, DuckDB, query planning & codegen
-- *GPU & Video ML*: PyTorch, TensorRT, ONNX Runtime, CUDA (NVDEC/NVENC), NVIDIA DeepStream, Jetson
-- *Tooling*: LLVM, Rust FFI bindings, Criterion benchmarking, Git, Typst/LaTeX
+- *System Building*: Async Rust (Tokio), gRPC, Docker, Kubernetes, Linux
+- *Data & Query Engines*: RDBMS, Apache Flink, Apache Calcite 
+- *GPU & Video ML*: PyTorch, TensorRT, CUDA Programming, Jetson, VLLM Internals
+- *Tooling*: LLVM, Rust FFI bindings, Git, LaTeX
